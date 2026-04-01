@@ -7415,5 +7415,4 @@ const questionPool = [
             }
         ]
     }
-]    
 ]
