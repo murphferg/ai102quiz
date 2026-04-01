@@ -1,3 +1,8 @@
+const urlSlug = (url, segment) => {
+    const match = url.match(new RegExp(`/${segment}/([^/]+)`));
+    return match ? match[1] : url;
+};
+
 const QuestionCard = ({ question }) => (
     <>
         <div className="mb-6 p-4 border border-blue-200 rounded-lg">
@@ -10,7 +15,7 @@ const QuestionCard = ({ question }) => (
                         rel="noreferrer"
                         className="text-sm text-blue-600 hover:text-blue-800 underline decoration-1 leading-tight break-all"
                     >
-                        {question.learningPath}
+                        {urlSlug(question.learningPath, 'paths')}
                     </a>
                 </div>
                 <div className="flex items-start">
@@ -21,7 +26,7 @@ const QuestionCard = ({ question }) => (
                         rel="noreferrer"
                         className="text-sm text-blue-600 hover:text-blue-800 underline decoration-1 leading-tight break-all"
                     >
-                        {question.module}
+                        {urlSlug(question.module, 'modules')}
                     </a>
                 </div>
             </div>

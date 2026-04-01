@@ -3,20 +3,22 @@ const FinalScreen = ({ score, totalQuestions, wrongAnswers, onRestart }) => {
     const percentage = ((score / totalQuestions) * 100).toFixed(0);
     const [reviewItem, setReviewItem] = useState(null);
 
+    const handleReviewItem = (i) => setReviewItem(reviewItem === i ? null : i);
+
     return (
         <div className="p-4 md:p-10 max-w-3xl mx-auto">
-            {/* Score summary */}
-            <div className="mb-6 p-8 text-center bg-white rounded-xl shadow-lg border border-gray-200">
-                <h2 className="text-3xl font-bold mb-4 text-gray-800">Quiz Complete!</h2>
-                <div className="text-5xl font-extrabold text-blue-600 mb-4">{percentage}%</div>
-                <p className="text-lg mb-6 text-gray-600">You got {score} out of {totalQuestions} correct.</p>
+            {/* Score summary — collapses to a single line when a wrong answer is expanded */}
+            {reviewItem !== null ? (
                 <button
-                    onClick={onRestart}
-                    className="bg-gray-800 text-white px-8 py-2 rounded-full hover:bg-black transition"
+                    onClick={() => setReviewItem(null)}
+                    className="w-full mb-4 px-6 py-3 text-left bg-white rounded-xl shadow border border-gray-200 text-gray-500 font-semibold hover:bg-gray-50 transition flex items-center justify-between"
                 >
-                    Restart
+                    <span>Score: {percentage}% &mdash; {score}/{totalQuestions}</span>
+                    <span className="text-sm text-blue-500">▼ expand</span>
                 </button>
-            </div>
+            ) : (
+                <ScoreSummary score={score} totalQuestions={totalQuestions} onRestart={onRestart} />
+            )}
 
             {/* Wrong answers review list */}
             {wrongAnswers.length > 0 && (
@@ -29,7 +31,7 @@ const FinalScreen = ({ score, totalQuestions, wrongAnswers, onRestart }) => {
                         {wrongAnswers.map((item, i) => (
                             <button
                                 key={item.question.id}
-                                onClick={() => setReviewItem(reviewItem === i ? null : i)}
+                                onClick={() => handleReviewItem(i)}
                                 className="w-full text-left px-6 py-4 hover:bg-red-50 transition"
                             >
                                 <div className="flex items-start justify-between gap-4">
