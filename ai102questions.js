@@ -7198,5 +7198,222 @@ const questionPool = [
                 "source": "https://learn.microsoft.com/en-us/training/modules/create-azure-cognitive-search-solution/2-understand-solution"
             }
         ]
+    },
+    {
+        "id": 201,
+        "question": "You need to select an Azure service for a solution that will generate natural‑language responses using a foundation model and also support image generation for marketing content. Which two services from Azure AI Foundry should you provision? (Choose two)",
+        "learningPath": "https://learn.microsoft.com/en-us/training/paths/develop-generative-ai-apps-azure/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/",
+        "answers": [
+            {
+                "id": 1,
+                "correct": false,
+                "answer": "Azure AI Vision",
+                "explanation": "Azure AI Vision is used for analyzing existing images (tags, OCR, objects), not for generating new images or natural language responses.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/2-understand-resources"
+            },
+            {
+                "id": 2,
+                "correct": true,
+                "answer": "Azure OpenAI in Foundry Models",
+                "explanation": "Azure OpenAI provides foundation models (like GPT-4) specifically designed for generating natural language responses.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/2-understand-openai"
+            },
+            {
+                "id": 3,
+                "correct": false,
+                "answer": "Azure AI Search",
+                "explanation": "Azure AI Search is a retrieval service for indexing and searching data, not a generative foundation model service.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/create-azure-cognitive-search-solution/2-understand-solution"
+            },
+            {
+                "id": 4,
+                "correct": true,
+                "answer": "DALL‑E in Azure OpenAI",
+                "explanation": "DALL-E is the specific foundation model within Azure OpenAI used for generating images from natural language descriptions.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/4-work-with-openai"
+            }
+        ]
+    },
+    {
+        "id": 202,
+        "question": "A retailer wants to detect customer movements in a store to improve layout design. Which service should you use?",
+        "learningPath": "https://learn.microsoft.com/en-us/training/paths/develop-computer-vision-solutions-azure/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/",
+        "answers": [
+            {
+                "id": 1,
+                "correct": true,
+                "answer": "Azure AI Vision Spatial Analysis",
+                "explanation": "Spatial Analysis is a feature of Azure AI Vision that analyzes real-time video to detect people's presence and movements in a physical space.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/4-detect-objects"
+            },
+            {
+                "id": 2,
+                "correct": false,
+                "answer": "Azure AI Speech",
+                "explanation": "Azure AI Speech handles audio transcription and translation, which is irrelevant to physical movement detection.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/create-speech-enabled-apps-with-azure-speech-service/2-understand-speech-to-text"
+            },
+            {
+                "id": 3,
+                "correct": false,
+                "answer": "Azure AI Search vector store",
+                "explanation": "Vector stores are for searching high-dimensional data, not for tracking live human movement in a store.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/create-azure-cognitive-search-solution/2-understand-solution"
+            },
+            {
+                "id": 4,
+                "correct": false,
+                "answer": "Azure AI Document Intelligence",
+                "explanation": "This service is for extracting text and fields from structured documents like forms and receipts.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/use-prebuilt-form-recognizer-models/2-understand-prebuilt-models"
+            }
+        ]
+    },
+    {
+        "id": 203,
+        "question": "When planning a generative AI solution using Azure OpenAI, which actions support Responsible AI and content moderation? (Choose two)",
+        "learningPath": "https://learn.microsoft.com/en-us/training/paths/develop-generative-ai-apps-azure/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/",
+        "answers": [
+            {
+                "id": 1,
+                "correct": true,
+                "answer": "Configure content safety filters and blocklists",
+                "explanation": "Content safety filters are a core component of Responsible AI, ensuring that generated content does not violate safety policies.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/3-responsible-ai"
+            },
+            {
+                "id": 2,
+                "correct": false,
+                "answer": "Optimize and manage resource scalability",
+                "explanation": "Scalability is a performance and operational concern, not a principle of Responsible AI or content moderation.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/3-responsible-ai"
+            },
+            {
+                "id": 3,
+                "correct": true,
+                "answer": "Implement prompt shields and harm detection",
+                "explanation": "Prompt shields protect against jailbreak attacks and malicious injections, fulfilling the safety requirement of Responsible AI.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/3-responsible-ai"
+            },
+            {
+                "id": 4,
+                "correct": false,
+                "answer": "Use DALL‑E to generate images only at test time",
+                "explanation": "Using a model only at test time is a development choice and does not constitute a content moderation or governance framework.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/3-responsible-ai"
+            }
+        ]
+    },
+    {
+        "id": 204,
+        "question": "You need to extract key phrases, entities, sentiment, and PII from a set of documents. Which Azure AI service should you use?",
+        "learningPath": "https://learn.microsoft.com/en-us/training/paths/develop-language-solutions-azure/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/analyze-text-with-azure-ai-language/",
+        "answers": [
+            {
+                "id": 1,
+                "correct": false,
+                "answer": "Azure AI Vision",
+                "explanation": "Azure AI Vision is for image processing, not for analyzing structured or unstructured text for sentiment and PII.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-text-with-azure-ai-language/2-detect-language-sentiment"
+            },
+            {
+                "id": 2,
+                "correct": true,
+                "answer": "Azure AI Language",
+                "explanation": "Azure AI Language contains all the necessary features (sentiment, NER, key phrase, PII) for unstructured text analysis.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-text-with-azure-ai-language/2-detect-language-sentiment"
+            },
+            {
+                "id": 3,
+                "correct": false,
+                "answer": "Azure AI Search",
+                "explanation": "Azure AI Search is for building a search engine; while it can use Language features during indexing, the features themselves belong to the Language service.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-text-with-azure-ai-language/2-detect-language-sentiment"
+            },
+            {
+                "id": 4,
+                "correct": false,
+                "answer": "Azure AI Speech",
+                "explanation": "Azure AI Speech is used for transcribing spoken audio to text, not for the semantic analysis of existing documents.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-text-with-azure-ai-language/2-detect-language-sentiment"
+            }
+        ]
+    },
+    {
+        "id": 205,
+        "question": "You want to build a computer vision solution that analyzes images for tags, objects, and text. What steps should you perform to create and deploy the appropriate Azure AI service?",
+        "learningPath": "https://learn.microsoft.com/en-us/training/paths/develop-computer-vision-solutions-azure/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/",
+        "answers": [
+            {
+                "id": 1,
+                "correct": true,
+                "answer": "Provision an Azure AI Vision resource, specify visual features in the API request, and interpret the response.",
+                "explanation": "This is the standard workflow for consuming the pre-trained Azure AI Vision API for tagging and object detection.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/3-analyze-images"
+            },
+            {
+                "id": 2,
+                "correct": false,
+                "answer": "Provision an Azure AI Document Intelligence resource, train a custom model, and evaluate model metrics.",
+                "explanation": "Document Intelligence is for extracting data from forms, not for general image tagging or scene analysis.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/3-analyze-images"
+            },
+            {
+                "id": 3,
+                "correct": false,
+                "answer": "Provision an Azure AI Search resource, create an index, and perform ranking.",
+                "explanation": "Search provides data retrieval; it doesn't perform the underlying computer vision analysis.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/3-analyze-images"
+            },
+            {
+                "id": 4,
+                "correct": false,
+                "answer": "Provision an Azure AI Speech resource, configure SSML, and deploy a custom voice model.",
+                "explanation": "Speech resources are entirely unrelated to image tagging and computer vision.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/3-analyze-images"
+            }
+        ]
+    },
+    {
+        "id": 206,
+        "question": "What configuration options can be used to control the behavior of an Azure OpenAI model?",
+        "learningPath": "https://learn.microsoft.com/en-us/training/paths/develop-generative-ai-apps-azure/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/",
+        "answers": [
+            {
+                "id": 1,
+                "correct": true,
+                "answer": "Adjust temperature and top‑p sampling parameters",
+                "explanation": "Temperature and Top-P are the primary parameters for controlling the randomness and creativity of OpenAI completions.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/4-work-with-openai"
+            },
+            {
+                "id": 2,
+                "correct": false,
+                "answer": "Use vector index queries to limit results",
+                "explanation": "Vector index queries are used in the Search service to retrieve data, not to control the foundation model's behavior directly.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/4-work-with-openai"
+            },
+            {
+                "id": 3,
+                "correct": false,
+                "answer": "Modify the cognitive services endpoint region",
+                "explanation": "Region affects availability and latency, but doesn't change how the model processes a prompt.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/4-work-with-openai"
+            },
+            {
+                "id": 4,
+                "correct": false,
+                "answer": "Enable DALL‑E image generation",
+                "explanation": "This selects a different model entirely; it is not a configuration parameter for a specific text model's behavior.",
+                "source": "https://learn.microsoft.com/en-us/training/modules/get-started-openai/4-work-with-openai"
+            }
+        ]
     }
+]    
 ]

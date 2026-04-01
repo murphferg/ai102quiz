@@ -9,6 +9,7 @@ const AI102Quiz = () => {
     const [isAnswerChecked, setIsAnswerChecked] = useState(false);
     const [score, setScore] = useState(0);
     const [answeredCorrectly, setAnsweredCorrectly] = useState({});
+    const [wrongAnswers, setWrongAnswers] = useState([]);
 
     const startQuiz = () => {
         const shuffled = [...questionPool].sort(() => 0.5 - Math.random());
@@ -17,6 +18,7 @@ const AI102Quiz = () => {
         setCurrentIndex(0);
         setScore(0);
         setAnsweredCorrectly({});
+        setWrongAnswers([]);
         resetQuestionState();
         setView('quiz');
     };
@@ -34,6 +36,12 @@ const AI102Quiz = () => {
         if (selectedObj.correct && !answeredCorrectly[currentIndex]) {
             setScore(prev => prev + 1);
             setAnsweredCorrectly(prev => ({ ...prev, [currentIndex]: true }));
+        } else if (!selectedObj.correct) {
+            setWrongAnswers(prev => {
+                const alreadyRecorded = prev.some(w => w.question.id === currentQuestion.id);
+                if (alreadyRecorded) return prev;
+                return [...prev, { question: currentQuestion, selectedAnswerId }];
+            });
         }
         setIsAnswerChecked(true);
     };
@@ -70,6 +78,7 @@ const AI102Quiz = () => {
             <FinalScreen
                 score={score}
                 totalQuestions={quizSet.length}
+                wrongAnswers={wrongAnswers}
                 onRestart={() => setView('setup')}
             />
         );
