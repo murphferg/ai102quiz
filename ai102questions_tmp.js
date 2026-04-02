@@ -1,410 +1,367 @@
 const questionPool = [
     {
-        "id": 210,
-        "question": "You have an Azure OpenAI in Foundry Models solution. The solution uses a specific GPT-3.5-Turbo model version that was current during initial deployment. Auto-update is disabled. Sometime later, you discover that it uses a newer version of the model. Why was the model version updated?",
+        "id": 221,
+        "question": "You are building an app that will analyze resumes and remove names and addresses. You need to configure the Azure Language Personally Identifiable Information (PII) detection feature for the app. Which categories should you specify in the request?",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models",
+        "module": "https://learn.microsoft.com/en-us/training/modules/publish-use-language-understanding-app/",
         "answers": [
             {
                 "id": 1,
                 "correct": false,
-                "answer": "Auto-update is always enabled.",
-                "explanation": "This is incorrect. Auto-update can be disabled to allow manual control, but retirement dates override this setting.",
+                "answer": "Person, Address, and IP",
+                "explanation": "Specifying IP would remove IP addresses, which is not required for this specific task of removing only names and addresses.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
-                "correct": false,
-                "answer": "Auto-update is enabled automatically when a new version is released.",
-                "explanation": "New versions do not trigger an automatic update if auto-update is disabled, unless the specific version reaches the end of its life.",
+                "correct": true,
+                "answer": "Person and Address only",
+                "explanation": "Person and Address categories will specifically detect and allow for the removal of names and physical addresses as required by the scenario.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
                 "correct": false,
-                "answer": "Model versions are updated automatically when the version is older than five version updates.",
-                "explanation": "There is no five-version update rule; updates are strictly tied to manual intervention or retirement schedules.",
-                "source": "Sample Test"
-            },
-            {
-                "id": 4,
-                "correct": true,
-                "answer": "The model version reached its retirement date.",
-                "explanation": "When a specific model version reaches its retirement date, the model will upgrade to the default version automatically to ensure continued service.",
+                "answer": "Person, PersonType, and Address",
+                "explanation": "PersonType would remove job roles (e.g., \'Software Engineer\'), which is not part of the requirement to remove only names and addresses.",
                 "source": "Sample Test"
             }
         ]
     },
     {
-        "id": 211,
-        "question": "An organization plans to use Azure OpenAI in Foundry Models to process user input and generate content. You need to create visual content from text descriptions. What should you use?",
+        "id": 222,
+        "question": "You are building an Azure Translator custom model and need to ensure that the translation accuracy has a Bilingual Evaluation Understudy (BLEU) score indicating high quality. What is the minimum score range required?",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/training/modules/prepare-azure-ai-development/3-azure-ai-services",
+        "module": "https://learn.microsoft.com/en-us/training/modules/translate-text-with-translator-service/",
         "answers": [
             {
                 "id": 1,
                 "correct": false,
-                "answer": "Azure AI Search",
-                "explanation": "Azure AI Search focuses on information retrieval and indexing, not on generating images from text.",
+                "answer": "0 to 19",
+                "explanation": "This range indicates a low-quality translation that is likely difficult to understand.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
-                "correct": true,
-                "answer": "DALL-E",
-                "explanation": "DALL-E is specifically designed for creating visual content from natural language text descriptions.",
+                "correct": false,
+                "answer": "20 to 39",
+                "explanation": "This range indicates a marginal translation quality.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
-                "correct": false,
-                "answer": "GPT-4",
-                "explanation": "GPT-4 is a text-based model optimized for complex reasoning and generating text, not images.",
+                "correct": true,
+                "answer": "40 to 59",
+                "explanation": "A BLEU score between 40 and 60 is the standard range that indicates a high-quality, fluent translation.",
                 "source": "Sample Test"
             },
             {
                 "id": 4,
                 "correct": false,
-                "answer": "Text Embedding Models",
-                "explanation": "Embedding models are used to convert text into numerical vectors for similarity search and cannot generate visual content.",
+                "answer": "80 to 100",
+                "explanation": "While higher is theoretically better, a score in this range is rarely achieved in real-world scenarios and is not the standard minimum for \'high quality\'.",
                 "source": "Sample Test"
             }
         ]
     },
     {
-        "id": 212,
-        "question": "Your company is developing a chatbot using an Azure OpenAI in Foundry Models service to provide answers based on the company\'s internal knowledge base. You need to improve the chatbot\'s ability to retrieve and process information from the knowledge base. Which two actions should you take?",
+        "id": 223,
+        "question": "You have an app that sends audio recordings from a call center to Azure Speech. During testing, you notice that the Word Error Rate (WER) is high due to substitution errors. What should you add to the training data to reduce the WER?",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/training/modules/prepare-azure-ai-development/3-azure-ai-services",
+        "module": "https://learn.microsoft.com/en-us/training/modules/create-speech-enabled-apps-with-azure-speech-service/",
         "answers": [
             {
                 "id": 1,
                 "correct": true,
-                "answer": "Index the knowledge base with AI Search.",
-                "explanation": "Indexing creates a searchable structure, allowing the chatbot to efficiently retrieve relevant data chunks to ground the model\'s responses.",
+                "answer": "custom product and people names",
+                "explanation": "Substitution errors occur when the model misidentifies a word as another. Adding domain-specific terminology like product and people names helps the model recognize them correctly.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
-                "correct": true,
-                "answer": "Integrate the Embeddings API.",
-                "explanation": "The Embeddings API enables semantic search, which helps the bot understand the intent of a query and retrieve the most relevant context.",
+                "correct": false,
+                "answer": "overlapping speakers",
+                "explanation": "Overlapping speakers typically cause deletion errors (where the model fails to capture words) rather than substitution errors.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
                 "correct": false,
-                "answer": "Train a custom language model.",
-                "explanation": "Training a custom model (fine-tuning) is unnecessary for retrieval tasks where pre-trained models like GPT-4 perform effectively when provided with context.",
-                "source": "Sample Test"
-            },
-            {
-                "id": 4,
-                "correct": false,
-                "answer": "Use AI Vision for document analysis.",
-                "explanation": "AI Vision is used for image analysis (like OCR) but is not the tool for conversational retrieval from a text-based knowledge base.",
+                "answer": "people talking in the background",
+                "explanation": "Background speech usually leads to insertion errors, where the model transcribes words that weren\'t part of the primary audio.",
                 "source": "Sample Test"
             }
         ]
     },
     {
-        "id": 213,
-        "question": "You are building a web app that will generate images based on user prompts. The app will use the DALL-E 3 Azure OpenAI model. You need to ensure that HTTP requests against the Azure OpenAI API successfully generate images. Which three HTTP header properties should you include?",
+        "id": 224,
+        "question": "You are building an app that enables users to create notes by using speech. You need a model that supports noisy environments, such as a factory floor. Which model should you recommend?",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/azure/ai-services/openai/reference",
+        "module": "https://learn.microsoft.com/en-us/training/modules/create-speech-enabled-apps-with-azure-speech-service/",
         "answers": [
             {
                 "id": 1,
-                "correct": true,
-                "answer": "the API version used in this operation",
-                "explanation": "The api-version is a required parameter in the request to ensure the API processes the call using the correct schema.",
+                "correct": false,
+                "answer": "base",
+                "explanation": "The base model is optimized for general environments and may perform poorly with heavy factory background noise.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
-                "correct": true,
-                "answer": "the name of the Azure OpenAI service resource",
-                "explanation": "The resource name is required to identify the specific service instance being targeted.",
+                "correct": false,
+                "answer": "base with customizations",
+                "explanation": "While this is a step up, the term specifically for this scenario in Azure is a custom speech-to-text model.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
                 "correct": true,
-                "answer": "the name of the DALL-E 3 model deployment",
-                "explanation": "The deployment name is a necessary header/URL component to identify which model instance should generate the image.",
+                "answer": "custom speech-to-text",
+                "explanation": "A custom speech-to-text model allows you to train the service on specific audio data containing the ambient noise of the target environment (the factory floor).",
                 "source": "Sample Test"
             },
             {
                 "id": 4,
                 "correct": false,
-                "answer": "the quality of the generated images",
-                "explanation": "This property belongs in the JSON request body, not in the HTTP headers.",
-                "source": "Sample Test"
-            },
-            {
-                "id": 5,
-                "correct": false,
-                "answer": "the style of the generated images",
-                "explanation": "Style parameters (vivid or natural) are specified in the request body.",
-                "source": "Sample Test"
-            },
-            {
-                "id": 6,
-                "correct": false,
-                "answer": "the user\'s prompt",
-                "explanation": "The user prompt is the core data of the request and is included in the body payload.",
+                "answer": "default",
+                "explanation": "The default model is equivalent to the base model and is not specialized for noisy conditions.",
                 "source": "Sample Test"
             }
         ]
     },
     {
-        "id": 214,
-        "question": "Your organization plans to implement a generative AI solution to assist customer success by summarizing complaints and questions. You need to ensure the model provides accurate summaries while reducing costs. What action should you take?",
+        "id": 225,
+        "question": "You are building a multilingual conversational app using Conversational Language Understanding (CLU). You need to optimize the performance of the model while minimizing development effort. What should you do?",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/training/modules/use-own-data-azure-openai/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/build-language-understanding-model/",
         "answers": [
             {
                 "id": 1,
-                "correct": false,
-                "answer": "Apply prompt engineering without external data sources.",
-                "explanation": "Prompt engineering improves response format but cannot provide accurate summaries of specific company data that the model hasn\'t seen.",
+                "correct": true,
+                "answer": "Add utterances for languages that are performing poorly in the model.",
+                "explanation": "CLU supports multilingual models within a single project. Adding targeted utterances for poorly performing languages is the most efficient optimization strategy.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
                 "correct": false,
-                "answer": "Deploy a model without grounding data and rely on pre-trained capabilities.",
-                "explanation": "Relying purely on pre-trained knowledge often leads to hallucinations when dealing with proprietary or specific customer data.",
+                "answer": "Configure the app to only query utterances in the language used to train the model.",
+                "explanation": "This restricts the app\'s functionality and does not optimize the model\'s multilingual capabilities.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
                 "correct": false,
-                "answer": "Fine-tune a model using customer query data without an orchestration layer.",
-                "explanation": "Fine-tuning is significantly more expensive and less flexible for frequently updated datasets than RAG.",
+                "answer": "Create separate projects for each language.",
+                "explanation": "Creating separate projects increases administrative and development effort, which contradicts the requirement to minimize effort.",
                 "source": "Sample Test"
             },
             {
                 "id": 4,
-                "correct": true,
-                "answer": "Use Retrieval-Augmented Generation (RAG) with Azure AI Search for grounding data.",
-                "explanation": "RAG with AI Search is the most cost-effective way to ground the model in real-world data, ensuring accurate and relevant summaries.",
+                "correct": false,
+                "answer": "Train the model using utterances in multiple languages and only query the model using the project language.",
+                "explanation": "CLU doesn\'t require querying in a single \'project language\'; you can query in any supported language.",
                 "source": "Sample Test"
             }
         ]
     },
     {
-        "id": 215,
-        "question": "Your company uses an Azure OpenAI Foundry Models service to generate code snippets. You need to ensure the generated code adheres to your organization\'s coding standards. What action should you take to achieve this?",
+        "id": 226,
+        "question": "You are building a chatbot using the Azure Language question answering service. Which two parameters will influence the operational costs? (Choose two)",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/training/modules/apply-prompt-engineering-azure-openai/",
+        "module": "https://learn.microsoft.com/en-us/training/modules/build-question-answering-solution/",
         "answers": [
             {
                 "id": 1,
                 "correct": false,
-                "answer": "Enable multi-region deployment.",
-                "explanation": "This affects availability and reliability, but does not influence the content or style of the code output.",
+                "answer": "the number of assigned metadata tags",
+                "explanation": "Metadata tags are used for filtering but do not directly impact the billing tier or operational cost.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
                 "correct": false,
-                "answer": "Increase compute resources.",
-                "explanation": "Increasing compute improves processing speed but has no effect on adherence to specific standards.",
+                "answer": "the number of knowledge base editors",
+                "explanation": "Editor counts are related to access control (RBAC) and do not affect the service\'s transaction or storage costs.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
-                "correct": true,
-                "answer": "Provide standard-compliant examples in prompts.",
-                "explanation": "Few-shot prompting (providing examples) is the most effective way to guide an LLM to follow specific stylistic and structural rules.",
-                "source": "Sample Test"
-            },
-            {
-                "id": 4,
                 "correct": false,
-                "answer": "Switch to a chat-optimized model.",
-                "explanation": "A chat-optimized model improves interaction flow but doesn\'t automatically know your proprietary coding standards.",
-                "source": "Sample Test"
-            }
-        ]
-    },
-    {
-        "id": 216,
-        "question": "You are deploying a generative AI solution to process customer feedback. You need to optimize the solution for performance and ensure its responses align with the organization\'s tone and style. Which three actions should you perform?",
-        "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/training/modules/fine-tune-model-azure-openai/",
-        "answers": [
-            {
-                "id": 1,
-                "correct": false,
-                "answer": "Deploy the model on edge devices.",
-                "explanation": "Edge deployment handles latency and connectivity but is not a strategy for tone alignment or performance optimization for reasoning.",
-                "source": "Sample Test"
-            },
-            {
-                "id": 2,
-                "correct": false,
-                "answer": "Enable support for multiple languages.",
-                "explanation": "Multi-language support expands reach but doesn\'t address tone alignment or core performance optimization.",
-                "source": "Sample Test"
-            },
-            {
-                "id": 3,
-                "correct": true,
-                "answer": "Fine-tune the model with customer feedback data.",
-                "explanation": "Fine-tuning customizes the model to match specific organizational tones and styles by training on actual feedback data.",
+                "answer": "the number of supported languages",
+                "explanation": "Question answering supports multiple languages, but the cost is determined by scale and throughput, not the language count.",
                 "source": "Sample Test"
             },
             {
                 "id": 4,
                 "correct": true,
-                "answer": "Set up monitoring in Azure to track response accuracy and resource usage.",
-                "explanation": "Continuous monitoring is necessary to evaluate the model\'s performance and ensure outputs remain accurate and within quota.",
+                "answer": "the required throughput",
+                "explanation": "Higher throughput requires a higher pricing tier to handle the volume of requests, directly influencing cost.",
                 "source": "Sample Test"
             },
             {
                 "id": 5,
                 "correct": true,
-                "answer": "Use prompt engineering to refine the model\'s output.",
-                "explanation": "Prompt engineering helps refine responses through structured inputs, enhancing the quality and relevance of the content.",
+                "answer": "the size and the number of knowledge bases",
+                "explanation": "The storage size and the total number of knowledge bases hosted in the resource determine the required Azure AI Search tier and pricing.",
                 "source": "Sample Test"
             }
         ]
     },
     {
-        "id": 217,
-        "question": "You use a text-generation model deployed in Microsoft Foundry. You need to reduce the randomness of the model\'s output to make its responses more predictable and consistent. Which parameter should you configure?",
+        "id": 227,
+        "question": "You are building a GPT-based chat application and plan to use the \'Using your data\' feature to ground the model. Which four types of files can you use? (Choose four)",
         "learningPath": "Sample Test",
         "module": "Sample Test",
         "answers": [
             {
                 "id": 1,
-                "correct": false,
-                "answer": "max_tokens",
-                "explanation": "This parameter only limits the length of the generated response.",
+                "correct": true,
+                "answer": "HTML",
+                "explanation": "HTML files are supported for grounding models in the \'Using your data\' feature.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
-                "correct": false,
-                "answer": "role",
-                "explanation": "The role parameter defines the author of the message (e.g., system, user) in a chat API call.",
+                "correct": true,
+                "answer": "MD",
+                "explanation": "Markdown (.md) files are supported for ingestion and grounding.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
-                "correct": false,
-                "answer": "stop",
-                "explanation": "The stop parameter identifies sequences that tell the model to halt generation.",
+                "correct": true,
+                "answer": "PDF",
+                "explanation": "PDF documents are one of the primary supported formats for this feature.",
                 "source": "Sample Test"
             },
             {
                 "id": 4,
                 "correct": true,
-                "answer": "temperature",
-                "explanation": "Temperature controls the randomness of the output. Lowering it makes the model more deterministic and focused.",
+                "answer": "TXT",
+                "explanation": "Plain text files are supported for grounding the model with company data.",
+                "source": "Sample Test"
+            },
+            {
+                "id": 5,
+                "correct": false,
+                "answer": "XML",
+                "explanation": "XML files are currently not supported for the \'Using your data\' grounding feature.",
+                "source": "Sample Test"
+            },
+            {
+                "id": 6,
+                "correct": false,
+                "answer": "ZIP",
+                "explanation": "Compressed ZIP files cannot be used directly; files must be extracted into supported formats first.",
                 "source": "Sample Test"
             }
         ]
     },
     {
-        "id": 218,
-        "question": "You have a generative AI application using a flow created in Microsoft Foundry. You plan to collect trace data, aggregate metrics, and user feedback with minimal administrative effort. What should you do?",
+        "id": 228,
+        "question": "You are building a solution that uses Azure AI Search and need to create a skillset definition. What are the minimum sections you should include in the definition?",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/flow-trace-feedback",
+        "module": "https://learn.microsoft.com/en-us/training/modules/create-custom-skill-for-azure-cognitive-search/",
         "answers": [
             {
                 "id": 1,
-                "correct": false,
-                "answer": "Add environment variables to the YAML file.",
-                "explanation": "Environment variables do not natively enable tracing or feedback features in the portal.",
+                "correct": true,
+                "answer": "name, description, and skills",
+                "explanation": "A skillset definition requires a name, a description, and the array of skills to be executed. Other sections like knowledgeStore are optional.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
                 "correct": false,
-                "answer": "Add properties to the YAML file of the deployment.",
-                "explanation": "Configuration via UI settings is the path for minimal administrative effort in Foundry.",
+                "answer": "name, description, knowledgeStore, and encryptionKey",
+                "explanation": "This list misses the mandatory \'skills\' section and includes optional components.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
-                "correct": true,
-                "answer": "From Deployment, configure the Application Insights diagnostics settings.",
-                "explanation": "Foundry integrates with Application Insights to provide request tracing and feedback collection with minimal setup effort.",
+                "correct": false,
+                "answer": "name, description, skills, and cognitiveServices",
+                "explanation": "cognitiveServices is only required for billable skills that call specific APIs, but it is not a structural minimum for every skillset.",
                 "source": "Sample Test"
             },
             {
                 "id": 4,
                 "correct": false,
-                "answer": "Modify the YAML file of the flow deployment.",
-                "explanation": "YAML modification is more manual and prone to error compared to the native diagnostics settings toggle.",
+                "answer": "name, description, skills, knowledgeStore, and encryptionKey",
+                "explanation": "While this is a complete definition, the question asks for the MINIMUM required sections.",
                 "source": "Sample Test"
             }
         ]
     },
-    // {
-    //     "id": 219,
-    //     "question": "You are building an app that uses Azure Translator document translation. You need to improve the quality of the translation for user-uploaded documents. What should you ask the users to include when they upload a document?",
-    //     "learningPath": "Sample Test",
-    //     "module": "https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/overview",
-    //     "answers": [
-    //         {
-    //             "id": 1,
-    //             "correct": false,
-    //             "answer": "a summary",
-    //             "explanation": "A summary doesn\'t help the model understand the linguistic nuances of the source text.",
-    //             "source": "Sample Test"
-    //         },
-    //         {
-    //             "id": 2,
-    //             "correct": false,
-    //             "answer": "the file format",
-    //             "explanation": "The API detects the format; knowing it doesn\'t improve translation accuracy.",
-    //             "source": "Sample Test"
-    //         },
-    //         {
-    //             "id": 3,
-    //             "correct": true,
-    //             "answer": "the source language",
-    //             "explanation": "Explicitly providing the source language allows the engine to skip detection and provide a more accurate translation result.",
-    //             "source": "Sample Test"
-    //         },
-    //         {
-    //             "id": 4,
-    //             "correct": false,
-    //             "answer": "the writing style",
-    //             "explanation": "Writing style is not a standard parameter for improving core translation accuracy in the standard API.",
-    //             "source": "Sample Test"
-    //         }
-    //     ]
-    // },
     {
-        "id": 220,
-        "question": "You have an app that analyzes social media mentions but notice it misses granular feedback (positive/negative within a single sentence). What should you add to the API requests to fix this?",
+        "id": 229,
+        "question": "Your company receives documents that need to be classified into predefined categories before extracting data. Which solution should you recommend?",
         "learningPath": "Sample Test",
-        "module": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview",
+        "module": "https://learn.microsoft.com/en-us/training/modules/use-financial-id-tax-models/",
         "answers": [
             {
                 "id": 1,
                 "correct": false,
-                "answer": "loggingOptOut=true",
-                "explanation": "This parameter is for privacy and does not change the depth of sentiment analysis.",
+                "answer": "Azure Vision OCR",
+                "explanation": "OCR only extracts text from images; it does not perform categorization of document types.",
+                "source": "Sample Test"
+            },
+            {
+                "id": 2,
+                "correct": true,
+                "answer": "Custom classification model in Azure Document Intelligence",
+                "explanation": "The custom classification model is designed specifically to categorize documents into predefined classes, enabling accurate routing for data extraction.",
+                "source": "Sample Test"
+            },
+            {
+                "id": 3,
+                "correct": false,
+                "answer": "Custom template model in Azure Document Intelligence",
+                "explanation": "Template models are for extracting data from a specific known layout, not for the initial classification step.",
+                "source": "Sample Test"
+            },
+            {
+                "id": 4,
+                "correct": false,
+                "answer": "Invoice model in Azure Document Intelligence",
+                "explanation": "The Invoice model is a prebuilt model for a specific document type, not a general tool for classifying multiple different document categories.",
+                "source": "Sample Test"
+            }
+        ]
+    },
+    {
+        "id": 230,
+        "question": "You need to extract text, tables, and selection marks from multi-page PDF documents while maintaining the structure. Which Azure Document Intelligence model should you recommend?",
+        "learningPath": "Sample Test",
+        "module": "https://learn.microsoft.com/en-us/training/modules/use-general-document-read-layout-models/",
+        "answers": [
+            {
+                "id": 1,
+                "correct": false,
+                "answer": "Azure Vision OCR",
+                "explanation": "Azure Vision OCR lacks advanced features like structural table recognition and selection mark detection.",
                 "source": "Sample Test"
             },
             {
                 "id": 2,
                 "correct": false,
-                "answer": "StringIndexType=TextElements_v8",
-                "explanation": "This affects character offsets in the response, not the analysis logic.",
+                "answer": "Azure Document Intelligence general model",
+                "explanation": "The general model focuses on entity extraction rather than preserving complex page structure like tables.",
                 "source": "Sample Test"
             },
             {
                 "id": 3,
                 "correct": true,
-                "answer": "opinionMining=true",
-                "explanation": "Setting opinionMining to true enables aspect-based sentiment analysis, providing the granular detail needed to identify sentiment for specific targets.",
+                "answer": "Azure Document Intelligence layout model",
+                "explanation": "The layout model is specifically built to extract structured data (tables, selection marks, and text) while preserving the logical structure of the document.",
+                "source": "Sample Test"
+            },
+            {
+                "id": 4,
+                "correct": false,
+                "answer": "Azure Document Intelligence read model",
+                "explanation": "The read model is optimized for text extraction (printed and handwritten) but does not handle tables or selection marks with high structural accuracy.",
                 "source": "Sample Test"
             }
         ]
