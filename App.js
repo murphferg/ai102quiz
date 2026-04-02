@@ -5,7 +5,7 @@ const AI102Quiz = () => {
     const [numRequested, setNumRequested] = useState(10);
     const [quizSet, setQuizSet] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+    const [selectedAnswerIds, setSelectedAnswerIds] = useState([]);
     const [isAnswerChecked, setIsAnswerChecked] = useState(false);
     const [score, setScore] = useState(0);
     const [answeredCorrectly, setAnsweredCorrectly] = useState({});
@@ -24,23 +24,38 @@ const AI102Quiz = () => {
     };
 
     const resetQuestionState = () => {
-        setSelectedAnswerId(null);
+        setSelectedAnswerIds([]);
         setIsAnswerChecked(false);
     };
 
-    const handleCheckAnswer = () => {
-        if (selectedAnswerId === null) return;
+    const handleToggleAnswer = (id) => {
         const currentQuestion = quizSet[currentIndex];
-        const selectedObj = currentQuestion.answers.find(a => a.id === selectedAnswerId);
+        const isMultiSelect = currentQuestion.answers.filter(a => a.correct).length > 1;
+        if (isMultiSelect) {
+            setSelectedAnswerIds(prev =>
+                prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+            );
+        } else {
+            setSelectedAnswerIds([id]);
+        }
+    };
 
-        if (selectedObj.correct && !answeredCorrectly[currentIndex]) {
+    const handleCheckAnswer = () => {
+        if (selectedAnswerIds.length === 0) return;
+        const currentQuestion = quizSet[currentIndex];
+        const correctIds = currentQuestion.answers.filter(a => a.correct).map(a => a.id);
+        const isCorrect =
+            correctIds.length === selectedAnswerIds.length &&
+            correctIds.every(id => selectedAnswerIds.includes(id));
+
+        if (isCorrect && !answeredCorrectly[currentIndex]) {
             setScore(prev => prev + 1);
             setAnsweredCorrectly(prev => ({ ...prev, [currentIndex]: true }));
-        } else if (!selectedObj.correct) {
+        } else if (!isCorrect) {
             setWrongAnswers(prev => {
                 const alreadyRecorded = prev.some(w => w.question.id === currentQuestion.id);
                 if (alreadyRecorded) return prev;
-                return [...prev, { question: currentQuestion, selectedAnswerId }];
+                return [...prev, { question: currentQuestion, selectedAnswerIds }];
             });
         }
         setIsAnswerChecked(true);
@@ -100,13 +115,13 @@ const AI102Quiz = () => {
                     {!isAnswerChecked ? (
                         <AnswerOptions
                             answers={currentQ.answers}
-                            selectedAnswerId={selectedAnswerId}
-                            onSelect={setSelectedAnswerId}
+                            selectedAnswerIds={selectedAnswerIds}
+                            onToggle={handleToggleAnswer}
                         />
                     ) : (
                         <ResultsDisplay
                             question={currentQ}
-                            selectedAnswerId={selectedAnswerId}
+                            selectedAnswerIds={selectedAnswerIds}
                         />
                     )}
                 </div>
@@ -114,7 +129,7 @@ const AI102Quiz = () => {
                 <QuizNavigation
                     currentIndex={currentIndex}
                     totalQuestions={quizSet.length}
-                    selectedAnswerId={selectedAnswerId}
+                    selectedAnswerIds={selectedAnswerIds}
                     isAnswerChecked={isAnswerChecked}
                     onPrev={handlePrev}
                     onCheckAnswer={handleCheckAnswer}

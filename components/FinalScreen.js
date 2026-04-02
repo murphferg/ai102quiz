@@ -38,7 +38,7 @@ const FinalScreen = ({ score, totalQuestions, wrongAnswers, onRestart }) => {
                                     <div className="flex-1">
                                         <p className="text-sm font-semibold text-gray-800 mb-1">{item.question.question}</p>
                                         <p className="text-xs text-red-500">
-                                            Your answer: {item.question.answers.find(a => a.id === item.selectedAnswerId).answer}
+                                            Your answer{item.selectedAnswerIds.length > 1 ? 's' : ''}: {item.selectedAnswerIds.map(id => item.question.answers.find(a => a.id === id).answer).join(', ')}
                                         </p>
                                     </div>
                                     <span className="text-gray-400 text-sm flex-shrink-0">{reviewItem === i ? '▲' : '▼'}</span>
@@ -47,7 +47,7 @@ const FinalScreen = ({ score, totalQuestions, wrongAnswers, onRestart }) => {
                                     <div className="mt-4 text-left" onClick={e => e.stopPropagation()}>
                                         <ResultsDisplay
                                             question={item.question}
-                                            selectedAnswerId={item.selectedAnswerId}
+                                            selectedAnswerIds={item.selectedAnswerIds}
                                         />
                                     </div>
                                 )}

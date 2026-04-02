@@ -1,4 +1,4 @@
-const QuizNavigation = ({ currentIndex, totalQuestions, selectedAnswerId, isAnswerChecked, onPrev, onCheckAnswer, onNext }) => (
+const QuizNavigation = ({ currentIndex, totalQuestions, selectedAnswerIds, isAnswerChecked, onPrev, onCheckAnswer, onNext }) => (
     <div className="flex justify-between items-center pt-6 border-t border-gray-100">
         <button
             onClick={onPrev}
@@ -11,7 +11,7 @@ const QuizNavigation = ({ currentIndex, totalQuestions, selectedAnswerId, isAnsw
         {!isAnswerChecked ? (
             <button
                 onClick={onCheckAnswer}
-                disabled={selectedAnswerId === null}
+                disabled={selectedAnswerIds.length === 0}
                 className="px-10 py-3 bg-blue-600 text-white rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-50 disabled:shadow-none"
             >
                 Check Answer
